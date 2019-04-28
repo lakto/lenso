@@ -1,0 +1,31 @@
+$width: 200px;
+$height: #{$width};
+
+.calendar {
+  margin: 0 auto;
+  max-width: 840px;
+
+  .day {
+    border: 1px solid rgba(55, 55, 55, 0.1);
+    height: calc(#{$height} + 30px);
+    width: $width;
+    float: left;
+    margin: 24px 12px;
+
+    img {
+      object-fit: cover;
+      width: $width;
+      height: $height;
+    }
+
+    p.caption {
+      height: 18px;
+      bottom: 16px;
+      position: relative;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.75);
+      padding: 6px;
+      color: rgba(55, 55, 55, 1);
+    }
+  }
+}
