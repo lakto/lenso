@@ -175,7 +175,7 @@ __webpack_require__.r(__webpack_exports__);
  * @suppress {suspiciousCode,uselessCode,missingProperties,missingOverride,checkTypes}
  * tslint:disable
  */
-var styles = ["header[_ngcontent-%COMP%] {\n  height: 64px;\n  background: #ddd;\n  padding: 0 16px; }\n  header[_ngcontent-%COMP%]   .select-date[_ngcontent-%COMP%] {\n    position: relative;\n    margin: 0 auto;\n    display: block;\n    \n    height: 64px; }\n  .content[_ngcontent-%COMP%] {\n  position: fixed;\n  width: 100%;\n  overflow: scroll;\n  background: rgba(111, 111, 111, 0.11);\n  top: 64px;\n  bottom: 48px;\n  padding: 48px 0; }\n  footer[_ngcontent-%COMP%] {\n  height: 36px;\n  background: #373737;\n  color: #ddd;\n  position: absolute;\n  bottom: 0;\n  width: 100vw;\n  padding: 12px 0 0;\n  text-align: center; }\n  footer[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n    color: inherit; }\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hay9Db2RlL2xlbnNvL3NyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixlQUFlLEVBQUE7RUFIakI7SUFNSSxrQkFBa0I7SUFDbEIsY0FBYztJQUNkLGNBQWM7SUFDZCx3QkFBQTtJQUVBLFlBQVksRUFBQTtFQUloQjtFQUNFLGVBQWU7RUFFZixXQUFXO0VBQ1gsZ0JBQWdCO0VBQ2hCLHFDQUFxQztFQUNyQyxTQUFTO0VBQ1QsWUFBWTtFQUNaLGVBQWUsRUFBQTtFQUdqQjtFQUNFLFlBQVk7RUFDWixtQkFBK0I7RUFDL0IsV0FBVztFQUNYLGtCQUFrQjtFQUNsQixTQUFTO0VBQ1QsWUFBWTtFQUNaLGlCQUFpQjtFQUNqQixrQkFBa0IsRUFBQTtFQVJwQjtJQVdJLGNBQWMsRUFBQSIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImhlYWRlciB7XG4gIGhlaWdodDogNjRweDtcbiAgYmFja2dyb3VuZDogI2RkZDtcbiAgcGFkZGluZzogMCAxNnB4O1xuXG4gIC5zZWxlY3QtZGF0ZSB7XG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgIG1hcmdpbjogMCBhdXRvO1xuICAgIGRpc3BsYXk6IGJsb2NrO1xuICAgIC8qIHRleHQtYWxpZ246IGNlbnRlcjsgKi9cbiAgICAvLyB0b3A6IDEycHg7XG4gICAgaGVpZ2h0OiA2NHB4O1xuICB9XG59XG5cbi5jb250ZW50IHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICAvLyBoZWlnaHQ6IGNhbGMoMTAwJSAtIDExMnB4KTtcbiAgd2lkdGg6IDEwMCU7XG4gIG92ZXJmbG93OiBzY3JvbGw7XG4gIGJhY2tncm91bmQ6IHJnYmEoMTExLCAxMTEsIDExMSwgMC4xMSk7XG4gIHRvcDogNjRweDtcbiAgYm90dG9tOiA0OHB4O1xuICBwYWRkaW5nOiA0OHB4IDA7XG59XG5cbmZvb3RlciB7XG4gIGhlaWdodDogMzZweDtcbiAgYmFja2dyb3VuZDogcmdiYSg1NSwgNTUsIDU1LCAxKTtcbiAgY29sb3I6ICNkZGQ7XG4gIHBvc2l0aW9uOiBhYnNvbHV0ZTtcbiAgYm90dG9tOiAwO1xuICB3aWR0aDogMTAwdnc7XG4gIHBhZGRpbmc6IDEycHggMCAwO1xuICB0ZXh0LWFsaWduOiBjZW50ZXI7XG5cbiAgYSB7XG4gICAgY29sb3I6IGluaGVyaXQ7XG4gIH1cbn1cbiJdfQ== */"];
+var styles = ["header[_ngcontent-%COMP%] {\n  height: 64px;\n  background: #ddd;\n  padding: 0 16px; }\n  header[_ngcontent-%COMP%]   .select-date[_ngcontent-%COMP%] {\n    position: relative;\n    margin: 0 auto;\n    display: block;\n    \n    height: 64px; }\n  .content[_ngcontent-%COMP%] {\n  position: fixed;\n  width: 100%;\n  overflow-y: scroll;\n  background: rgba(111, 111, 111, 0.11);\n  top: 64px;\n  bottom: 48px;\n  padding: 48px 0; }\n  footer[_ngcontent-%COMP%] {\n  height: 36px;\n  background: #373737;\n  color: #ddd;\n  position: absolute;\n  bottom: 0;\n  width: 100vw;\n  padding: 12px 0 0;\n  text-align: center; }\n  footer[_ngcontent-%COMP%]   a[_ngcontent-%COMP%] {\n    color: inherit; }\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9hay9Db2RlL2xlbnNvL3NyYy9hcHAvYXBwLmNvbXBvbmVudC5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBO0VBQ0UsWUFBWTtFQUNaLGdCQUFnQjtFQUNoQixlQUFlLEVBQUE7RUFIakI7SUFNSSxrQkFBa0I7SUFDbEIsY0FBYztJQUNkLGNBQWM7SUFDZCx3QkFBQTtJQUVBLFlBQVksRUFBQTtFQUloQjtFQUNFLGVBQWU7RUFFZixXQUFXO0VBQ1gsa0JBQWtCO0VBQ2xCLHFDQUFxQztFQUNyQyxTQUFTO0VBQ1QsWUFBWTtFQUNaLGVBQWUsRUFBQTtFQUdqQjtFQUNFLFlBQVk7RUFDWixtQkFBK0I7RUFDL0IsV0FBVztFQUNYLGtCQUFrQjtFQUNsQixTQUFTO0VBQ1QsWUFBWTtFQUNaLGlCQUFpQjtFQUNqQixrQkFBa0IsRUFBQTtFQVJwQjtJQVdJLGNBQWMsRUFBQSIsImZpbGUiOiJzcmMvYXBwL2FwcC5jb21wb25lbnQuc2NzcyIsInNvdXJjZXNDb250ZW50IjpbImhlYWRlciB7XG4gIGhlaWdodDogNjRweDtcbiAgYmFja2dyb3VuZDogI2RkZDtcbiAgcGFkZGluZzogMCAxNnB4O1xuXG4gIC5zZWxlY3QtZGF0ZSB7XG4gICAgcG9zaXRpb246IHJlbGF0aXZlO1xuICAgIG1hcmdpbjogMCBhdXRvO1xuICAgIGRpc3BsYXk6IGJsb2NrO1xuICAgIC8qIHRleHQtYWxpZ246IGNlbnRlcjsgKi9cbiAgICAvLyB0b3A6IDEycHg7XG4gICAgaGVpZ2h0OiA2NHB4O1xuICB9XG59XG5cbi5jb250ZW50IHtcbiAgcG9zaXRpb246IGZpeGVkO1xuICAvLyBoZWlnaHQ6IGNhbGMoMTAwJSAtIDExMnB4KTtcbiAgd2lkdGg6IDEwMCU7XG4gIG92ZXJmbG93LXk6IHNjcm9sbDtcbiAgYmFja2dyb3VuZDogcmdiYSgxMTEsIDExMSwgMTExLCAwLjExKTtcbiAgdG9wOiA2NHB4O1xuICBib3R0b206IDQ4cHg7XG4gIHBhZGRpbmc6IDQ4cHggMDtcbn1cblxuZm9vdGVyIHtcbiAgaGVpZ2h0OiAzNnB4O1xuICBiYWNrZ3JvdW5kOiByZ2JhKDU1LCA1NSwgNTUsIDEpO1xuICBjb2xvcjogI2RkZDtcbiAgcG9zaXRpb246IGFic29sdXRlO1xuICBib3R0b206IDA7XG4gIHdpZHRoOiAxMDB2dztcbiAgcGFkZGluZzogMTJweCAwIDA7XG4gIHRleHQtYWxpZ246IGNlbnRlcjtcblxuICBhIHtcbiAgICBjb2xvcjogaW5oZXJpdDtcbiAgfVxufVxuIl19 */"];
 
 
 
@@ -387,7 +387,17 @@ __webpack_require__.r(__webpack_exports__);
 var styles_CalendarComponent = [_calendar_component_scss_shim_ngstyle__WEBPACK_IMPORTED_MODULE_0__["styles"]];
 var RenderType_CalendarComponent = /*@__PURE__*/ /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵcrt"]({ encapsulation: 0, styles: styles_CalendarComponent, data: {} });
 
-function View_CalendarComponent_3(_l) { return _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵvid"](0, [(_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](0, 0, null, null, 6, "div", [["class", "day"]], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](1, 0, null, null, 2, "img", [["appPictureOfTheDay", ""]], null, null, null, null, null)), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵdid"](2, 540672, null, 0, _picture_of_the_day_picture_of_the_day_directive__WEBPACK_IMPORTED_MODULE_2__["PictureOfTheDayDirective"], [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]], { source: [0, "source"] }, null), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵppd"](3, 2), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](4, 0, null, null, 2, "p", [["class", "caption mat-caption"]], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵted"](5, null, ["", ""])), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵppd"](6, 2)], function (_ck, _v) { var currVal_0 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵunv"](_v, 2, 0, _ck(_v, 3, 0, _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵnov"](_v.parent.parent.parent, 0), _v.parent.context.$implicit, "yyyy-MM-dd.jpg")); _ck(_v, 2, 0, currVal_0); }, function (_ck, _v) { var currVal_1 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵunv"](_v, 5, 0, _ck(_v, 6, 0, _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵnov"](_v.parent.parent.parent, 0), _v.parent.context.$implicit, "yyyy \u2022 MM \u2022 dd")); _ck(_v, 5, 0, currVal_1); }); }
+function View_CalendarComponent_3(_l) {
+    return _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵvid"](0, [(_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](0, 0, null, null, 6, "div", [["class", "day link"]], null, [[null, "click"]], function (_v, en, $event) {
+            var ad = true;
+            var _co = _v.component;
+            if (("click" === en)) {
+                var pd_0 = (_co.openImage(_v.parent.context.$implicit) !== false);
+                ad = (pd_0 && ad);
+            }
+            return ad;
+        }, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](1, 0, null, null, 2, "img", [["appPictureOfTheDay", ""]], null, null, null, null, null)), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵdid"](2, 540672, null, 0, _picture_of_the_day_picture_of_the_day_directive__WEBPACK_IMPORTED_MODULE_2__["PictureOfTheDayDirective"], [_angular_core__WEBPACK_IMPORTED_MODULE_1__["Renderer2"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["ElementRef"]], { source: [0, "source"] }, null), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵppd"](3, 2), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](4, 0, null, null, 2, "p", [["class", "caption mat-caption"]], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵted"](5, null, ["", ""])), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵppd"](6, 2)], function (_ck, _v) { var currVal_0 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵunv"](_v, 2, 0, _ck(_v, 3, 0, _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵnov"](_v.parent.parent.parent, 0), _v.parent.context.$implicit, "yyyy-MM-dd.jpg")); _ck(_v, 2, 0, currVal_0); }, function (_ck, _v) { var currVal_1 = _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵunv"](_v, 5, 0, _ck(_v, 6, 0, _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵnov"](_v.parent.parent.parent, 0), _v.parent.context.$implicit, "yyyy \u2022 MM \u2022 dd")); _ck(_v, 5, 0, currVal_1); });
+}
 function View_CalendarComponent_2(_l) { return _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵvid"](0, [(_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](0, 0, null, null, 2, "div", [], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵand"](16777216, null, null, 1, null, View_CalendarComponent_3)), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵdid"](2, 16384, null, 0, _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgIf"], [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"]], { ngIf: [0, "ngIf"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_0 = ((_v.context.$implicit <= _co.lastDay) && (_v.context.$implicit >= _co.firstDay)); _ck(_v, 2, 0, currVal_0); }, null); }
 function View_CalendarComponent_1(_l) { return _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵvid"](0, [(_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵeld"](0, 0, null, null, 2, "div", [["class", "calendar"]], null, null, null, null, null)), (_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵand"](16777216, null, null, 1, null, View_CalendarComponent_2)), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵdid"](2, 278528, null, 0, _angular_common__WEBPACK_IMPORTED_MODULE_3__["NgForOf"], [_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewContainerRef"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["TemplateRef"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["IterableDiffers"]], { ngForOf: [0, "ngForOf"] }, null)], function (_ck, _v) { var _co = _v.component; var currVal_0 = _co.days; _ck(_v, 2, 0, currVal_0); }, null); }
 function View_CalendarComponent_4(_l) { return _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵvid"](0, [(_l()(), _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵted"](-1, null, [" Nothing to display\n"]))], null, null); }
@@ -467,6 +477,19 @@ var CalendarComponent = /** @class */ /*@__PURE__*/ (function () {
         this.loading = false;
         return days;
     };
+    CalendarComponent.prototype.openImage = function (image) {
+        var month = ('0' + (image.getMonth() + 1)).slice(-2);
+        var day = ('0' + image.getDate()).slice(-2);
+        this.currentImage = image.getFullYear() + '-' + month + '-' + day;
+        // console.log(this.currentImage);
+    };
+    CalendarComponent.prototype.closeImage = function () {
+        this.currentImage = undefined;
+    };
+    CalendarComponent.prototype.nextImage = function () {
+    };
+    CalendarComponent.prototype.prevImage = function () {
+    };
     return CalendarComponent;
 }());
 
@@ -498,10 +521,11 @@ var PictureOfTheDayDirective = /** @class */ /*@__PURE__*/ (function () {
     function PictureOfTheDayDirective(_renderer, _ele) {
         this._renderer = _renderer;
         this._ele = _ele;
+        this.imagePath = 'https://cloud.kuak.ch/d/02d1659bcea74e71a40d/files/?p=/'; // 'assets/images/'
         this.onError = ImageConfig.defaultNotFound;
     }
     PictureOfTheDayDirective.prototype.ngOnChanges = function () {
-        this.source = 'assets/images/' + this.source;
+        this.source = this.imagePath + this.source;
         this._renderer.setAttribute(this._ele.nativeElement, 'src', this.source);
         this._renderer.setAttribute(this._ele.nativeElement, 'onError', 'this.src=\'' + this.onError + '\'');
     };

@@ -16,6 +16,8 @@ export class CalendarComponent implements OnInit, OnChanges {
 
     days: Date[] = [];
 
+    currentImage: string;
+
     constructor () {
 
         /*
@@ -54,6 +56,25 @@ export class CalendarComponent implements OnInit, OnChanges {
         }
         this.loading = false;
         return days;
+
+    }
+
+    openImage(image: Date) {
+        const month: string = ('0' + (image.getMonth() + 1)).slice(-2);
+        const day: string = ('0' + image.getDate()).slice(-2);
+        this.currentImage = image.getFullYear() + '-' + month + '-' + day;
+        // console.log(this.currentImage);
+    }
+
+    closeImage() {
+        this.currentImage = undefined;
+    }
+
+    nextImage() {
+
+    }
+
+    prevImage() {
 
     }
 

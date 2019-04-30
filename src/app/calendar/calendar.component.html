@@ -1,7 +1,7 @@
 <div class="calendar" *ngIf="days.length > 0; else error">
   <div *ngFor="let day of days">
     <!--  -->
-    <div class="day" *ngIf="day <= lastDay && day >= firstDay">
+    <div class="day link" *ngIf="day <= lastDay && day >= firstDay" (click)="openImage(day)">
       <img appPictureOfTheDay [source]="day | date: 'yyyy-MM-dd.jpg'">
       <p class="caption mat-caption">{{day | date: "yyyy • MM • dd"}}</p>
     </div>
