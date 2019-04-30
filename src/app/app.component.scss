@@ -17,7 +17,7 @@ header {
   position: fixed;
   // height: calc(100% - 112px);
   width: 100%;
-  overflow: scroll;
+  overflow-y: scroll;
   background: rgba(111, 111, 111, 0.11);
   top: 64px;
   bottom: 48px;
