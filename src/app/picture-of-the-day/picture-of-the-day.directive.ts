@@ -13,7 +13,7 @@ export class PictureOfTheDayDirective implements OnChanges {
 
   @Input() source: string;
 
-  imagePath: string = 'https://cloud.kuak.ch/d/02d1659bcea74e71a40d/files/?p=/'; // 'assets/images/'
+  imagePath: string = 'https://cloud.kuak.ch/thumbnail/02d1659bcea74e71a40d/1024/'; // 'assets/images/'
 
   onError: string = ImageConfig.defaultNotFound;
 

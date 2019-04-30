@@ -521,7 +521,7 @@ var PictureOfTheDayDirective = /** @class */ /*@__PURE__*/ (function () {
     function PictureOfTheDayDirective(_renderer, _ele) {
         this._renderer = _renderer;
         this._ele = _ele;
-        this.imagePath = 'https://cloud.kuak.ch/d/02d1659bcea74e71a40d/files/?p=/'; // 'assets/images/'
+        this.imagePath = 'https://cloud.kuak.ch/thumbnail/02d1659bcea74e71a40d/1024/'; // 'assets/images/'
         this.onError = ImageConfig.defaultNotFound;
     }
     PictureOfTheDayDirective.prototype.ngOnChanges = function () {
