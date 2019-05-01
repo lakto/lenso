@@ -6,11 +6,12 @@ $height: #{$width};
   max-width: 840px;
 
   .day {
-    border: 1px solid rgba(55, 55, 55, 0.1);
-    height: calc(#{$height} + 30px);
-    width: $width;
-    float: left;
-    margin: 24px 12px;
+    height: calc(#{$height} + 32px) !important;
+
+    .day-card {
+      border: 1px solid rgba(55, 55, 55, 0.1);
+      height: calc(100% - 2px);
+    }
 
     img {
       object-fit: cover;

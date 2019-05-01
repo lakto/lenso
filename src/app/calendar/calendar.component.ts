@@ -1,4 +1,5 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 @Component({
     selector: 'app-calendar',
@@ -18,15 +19,14 @@ export class CalendarComponent implements OnInit, OnChanges {
 
     currentImage: string;
 
-    constructor () {
+    isMobile: boolean = false;
 
-        /*
-        this.error =
-            this.selectedYear < AppConfig.YEAR ||
-            this.selectedYear > new Date().getFullYear() ||
-            this.selectedMonth < AppConfig.MONTH - 1 ||
-            this.selectedMonth > new Date().getMonth();
-            */
+    constructor (private _breakpointObserver: BreakpointObserver) {
+        _breakpointObserver.observe([
+            Breakpoints.Handset
+        ]).subscribe(result => {
+            this.isMobile = result.matches;
+        });
     }
 
     ngOnInit() {

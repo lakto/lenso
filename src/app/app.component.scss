@@ -1,15 +1,28 @@
 header {
   height: 64px;
+  width: 100vw;
   background: #ddd;
   padding: 0 16px;
+  display: flex;
+  position: fixed;
+
+  .fill-remaining-space {
+    flex: 1 1 auto;
+  }
+
+  .logo,
+  .info,
+  .select-date {
+    margin: 8px;
+    height: 48px;
+  }
 
   .select-date {
-    position: relative;
-    margin: 0 auto;
-    display: block;
-    /* text-align: center; */
-    // top: 12px;
-    height: 64px;
+    font-size: 1.2em;
+
+    &:disabled {
+      color: inherit;
+    }
   }
 }
 
@@ -17,18 +30,18 @@ header {
   position: fixed;
   // height: calc(100% - 112px);
   width: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
   background: rgba(111, 111, 111, 0.11);
   top: 64px;
   bottom: 48px;
-  padding: 48px 0;
+  padding: 24px 0;
 }
 
 footer {
   height: 36px;
   background: rgba(55, 55, 55, 1);
   color: #ddd;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100vw;
   padding: 12px 0 0;

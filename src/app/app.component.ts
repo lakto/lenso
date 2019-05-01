@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AppConfig } from './app.config';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { FormGroup, FormBuilder, FormControl } from '@angular/forms';
+import { MatDialog } from '@angular/material';
+import { AboutComponent } from './about/about.component';
 
 @Component({
   selector: 'app-root',
@@ -21,7 +23,7 @@ export class AppComponent implements OnInit {
 
   currentYear: number = new Date().getFullYear();
 
-  constructor () {
+  constructor (public dialog: MatDialog) {
 
   }
 
@@ -64,6 +66,12 @@ export class AppComponent implements OnInit {
 
   setCalendar(month: Date) {
     this.selectedDate = month;
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AboutComponent, {
+      width: '480px'
+    });
   }
 
 

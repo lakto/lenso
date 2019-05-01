@@ -87,6 +87,12 @@ THE SOFTWARE.
 
 @angular/material/button
 
+@angular/material/dialog
+
+@angular/material/grid-list
+
+@angular/material/icon
+
 @angular/material/menu
 
 @angular/platform-browser

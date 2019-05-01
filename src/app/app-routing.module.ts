@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
-import { CalendarComponent } from './calendar/calendar.component';
+import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   {
@@ -10,8 +10,8 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: ':year/:month',
-    component: CalendarComponent
+    path: 'about',
+    component: AboutComponent
   }
 ];
 
