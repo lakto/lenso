@@ -3,7 +3,7 @@
     <div *ngFor="let day of days">
       <mat-grid-tile *ngIf="day <= lastDay && day >= firstDay" [colspan]="1" [rowspan]="1" class="day">
         <div class="day-card link" (click)="openImage(day)">
-          <img appPictureOfTheDay [source]="day | date: 'yyyyMMdd.jpg'">
+          <img appPictureOfTheDay [source]="day | date: 'yyyyMMdd.JPG'">
           <p class="caption mat-caption">{{day | date: "yyyy • MM • dd"}}</p>
         </div>
       </mat-grid-tile>
