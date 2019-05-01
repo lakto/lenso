@@ -1,6 +1,6 @@
 header {
   height: 64px;
-  width: 100vw;
+  width: calc(100vw - 32px);
   background: #ddd;
   padding: 0 16px;
   display: flex;
