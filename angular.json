@@ -30,7 +30,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "./node_modules/exif-js/exif.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {
@@ -87,7 +89,9 @@
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "./node_modules/exif-js/exif.js"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"

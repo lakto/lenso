@@ -2,8 +2,8 @@
   <mat-grid-list [cols]="isMobile ? 2 : 4" rowHeight="244px">
     <div *ngFor="let day of days">
       <mat-grid-tile *ngIf="day <= lastDay && day >= firstDay" [colspan]="1" [rowspan]="1" class="day">
-        <div class="day-card link" (click)="openImage(day)">
-          <img appPictureOfTheDay [source]="day | date: 'yyyyMMdd.jpg'">
+        <div class="day-card link">
+          <img appPictureOfTheDay [source]="day | date: 'yyyyMMdd'" (click)="openImage(day, $event)">
           <p class="caption mat-caption">{{day | date: "yyyy • MM • dd"}}</p>
         </div>
       </mat-grid-tile>
@@ -13,4 +13,16 @@
 
 <ng-template #error>
   Nothing to display
+</ng-template>
+
+<ng-template #photo>
+  <div class="photo">
+    <img appPictureOfTheDay [source]="currentDay | date: 'yyyyMMdd'">
+    <div class="caption">
+      <span class="fill-remaining-space"></span>
+      <span>{{currentDay | date: "yyyy • MM • dd"}}</span>
+      <span class="fill-remaining-space"></span>
+      <!-- <span>{{currentDay | date: "yyyy • MM • dd"}}</span> -->
+    </div>
+  </div>
 </ng-template>

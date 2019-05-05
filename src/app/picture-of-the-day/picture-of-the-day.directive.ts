@@ -13,7 +13,8 @@ export class PictureOfTheDayDirective implements OnChanges {
 
   @Input() source: string;
 
-  imagePath: string = 'https://cloud.kuak.ch/thumbnail/02d1659bcea74e71a40d/1024/'; // 'assets/images/'
+  imagePath: string = 'https://cloud.kuak.ch/thumbnail/02d1659bcea74e71a40d/1200/'; // 'assets/images/'
+  // imagePath: string = 'https://cloud.kuak.ch/seafhttp/files/7477224d-7129-4116-8a59-99e8389cb6a8/'; // 'assets/images/'
 
   onError: string = ImageConfig.defaultNotFound;
 
@@ -23,7 +24,7 @@ export class PictureOfTheDayDirective implements OnChanges {
 
   ngOnChanges() {
 
-    this.source = this.imagePath + this.source;
+    this.source = this.imagePath + this.source + '.jpg';
 
     this._renderer.setAttribute(this._ele.nativeElement, 'src', this.source);
     this._renderer.setAttribute(this._ele.nativeElement, 'onError', 'this.src=\'' + this.onError + '\'');

@@ -13,20 +13,42 @@ $height: #{$width};
       height: calc(100% - 2px);
     }
 
+    .caption {
+      height: 18px;
+      bottom: 16px;
+      padding: 6px;
+      text-align: center;
+      position: relative;
+    }
+
     img {
       object-fit: cover;
       width: $width;
       height: $height;
     }
+  }
+}
 
-    p.caption {
-      height: 18px;
-      bottom: 16px;
-      position: relative;
-      text-align: center;
-      background: rgba(255, 255, 255, 0.75);
-      padding: 6px;
-      color: rgba(55, 55, 55, 1);
-    }
+.caption {
+  background: rgba(255, 255, 255, 0.75);
+  color: rgba(55, 55, 55, 1);
+}
+
+.photo {
+  //width: 720px;
+  //height: 640px;
+  background: rgba(255, 255, 255, 1);
+  padding-bottom: 48px;
+
+  img {
+    max-height: 640px;
+    max-width: 80vw;
+  }
+
+  .caption {
+    display: flex;
+    padding: 0 16px;
+    margin-top: 24px;
+    height: 0;
   }
 }

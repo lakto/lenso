@@ -1,5 +1,14 @@
-import { Component, OnInit, OnChanges, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, Input, ViewContainerRef, ViewChild, TemplateRef, ElementRef } from '@angular/core';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
+import { TemplatePortal } from '@angular/cdk/portal';
+
+
+export interface MyExif {
+    model: string;
+    lens: string;
+    capture: string;
+}
 
 @Component({
     selector: 'app-calendar',
@@ -15,18 +24,29 @@ export class CalendarComponent implements OnInit, OnChanges {
     @Input() lastDay: Date;
     @Input() firstDay: Date;
 
+    @ViewChild('photo') photo: TemplateRef<any>;
+
     days: Date[] = [];
 
-    currentImage: string;
+    currentDay: Date;
+
+    // overlay reference
+    overlayRef: OverlayRef;
+
+    exif: MyExif;
 
     isMobile: boolean = false;
 
-    constructor (private _breakpointObserver: BreakpointObserver) {
-        _breakpointObserver.observe([
-            Breakpoints.Handset
-        ]).subscribe(result => {
-            this.isMobile = result.matches;
-        });
+    constructor (
+        private _breakpointObserver: BreakpointObserver,
+        private _viewContainerRef: ViewContainerRef,
+        private _overlay: Overlay) {
+
+        this._breakpointObserver.observe([Breakpoints.Handset]).subscribe(
+            result => {
+                this.isMobile = result.matches;
+            }
+        );
     }
 
     ngOnInit() {
@@ -59,15 +79,16 @@ export class CalendarComponent implements OnInit, OnChanges {
 
     }
 
-    openImage(image: Date) {
-        const month: string = ('0' + (image.getMonth() + 1)).slice(-2);
-        const day: string = ('0' + image.getDate()).slice(-2);
-        this.currentImage = image.getFullYear() + '-' + month + '-' + day;
+    openImage(image: Date, ele: MouseEvent) {
+
+        // console.log(ele.path[0]);
+        this.currentDay = image;
         // console.log(this.currentImage);
+        this.openPanelWithBackdrop();
     }
 
     closeImage() {
-        this.currentImage = undefined;
+        this.currentDay = undefined;
     }
 
     nextImage() {
@@ -77,5 +98,34 @@ export class CalendarComponent implements OnInit, OnChanges {
     prevImage() {
 
     }
+
+    openPanelWithBackdrop() {
+        const positionStrategy = this._overlay.position().global().centerHorizontally().centerVertically();
+        const config = new OverlayConfig({
+            hasBackdrop: true,
+            backdropClass: 'cdk-overlay-dark-backdrop',
+            positionStrategy: positionStrategy,
+            scrollStrategy: this._overlay.scrollStrategies.block()
+            // positionStrategy: this._overlay.position().global().centerHorizontally()
+        });
+
+        this.overlayRef = this._overlay.create(config);
+        // overlayRef.attach(this.searchMenu);
+        this.overlayRef.attach(new TemplatePortal(this.photo, this._viewContainerRef));
+        this.overlayRef.backdropClick().subscribe(() => this.overlayRef.detach());
+    }
+
+    /* getOverlayPosition(): PositionStrategy {
+        const positions = [
+            new ConnectionPositionPair({ originX: 'start', originY: 'bottom' }, { overlayX: 'start', overlayY: 'top' }),
+            new ConnectionPositionPair({ originX: 'start', originY: 'top' }, { overlayX: 'start', overlayY: 'bottom' })
+        ];
+
+        const overlayPosition = this._overlay.position().flexibleConnectedTo(this.searchPanel).withPositions(positions).withLockedPosition(false);
+        // .global().centerHorizontally().centerVertically();
+        // .flexibleConnectedTo(this.searchPanel.nativeElement.position.withDefaultOffsetX(0));
+
+        return overlayPosition;
+    } */
 
 }
