@@ -11,6 +11,14 @@ a,
   font-weight: bold;
 }
 
+.fill-remaining-space {
+  flex: 1 1 auto;
+}
+
 .mat-menu-item {
   font-size: 1.2em !important;
+}
+
+.cdk-overlay-dark-backdrop {
+  background: rgba(0, 0, 0, 0.81);
 }
