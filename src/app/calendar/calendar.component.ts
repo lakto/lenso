@@ -101,11 +101,12 @@ export class CalendarComponent implements OnInit, OnChanges {
 
     openPanelWithBackdrop() {
         const positionStrategy = this._overlay.position().global().centerHorizontally().centerVertically();
+        const scrollStrategy = this._overlay.scrollStrategies.reposition();
         const config = new OverlayConfig({
             hasBackdrop: true,
             backdropClass: 'cdk-overlay-dark-backdrop',
             positionStrategy: positionStrategy,
-            scrollStrategy: this._overlay.scrollStrategies.block()
+            scrollStrategy: scrollStrategy
             // positionStrategy: this._overlay.position().global().centerHorizontally()
         });
 
