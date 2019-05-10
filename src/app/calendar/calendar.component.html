@@ -1,14 +1,14 @@
 <div class="calendar" *ngIf="days.length > 0; else error">
-  <mat-grid-list [cols]="isMobile ? 2 : 4" rowHeight="244px">
-    <div *ngFor="let day of days">
-      <mat-grid-tile *ngIf="day <= lastDay && day >= firstDay" [colspan]="1" [rowspan]="1" class="day">
-        <div class="day-card link">
-          <img appPictureOfTheDay [source]="day | date: 'yyyyMMdd'" (click)="openImage(day, $event)">
-          <p class="caption mat-caption">{{day | date: "yyyy • MM • dd"}}</p>
-        </div>
-      </mat-grid-tile>
+
+  <div *ngFor="let day of days" class="day">
+
+    <div *ngIf="day <= lastDay && day >= firstDay">
+      <img appPictureOfTheDay [source]="day | date: 'yyyyMMdd'" (click)="openImage(day, $event)" class="link">
+      <p class="caption mat-caption">{{day | date: "yyyy • MM • dd"}}</p>
     </div>
-  </mat-grid-list>
+
+  </div>
+
 </div>
 
 <ng-template #error>
