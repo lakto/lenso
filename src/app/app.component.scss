@@ -5,6 +5,7 @@ header {
   padding: 0 16px;
   display: flex;
   position: fixed;
+  z-index: 2;
 
   .logo,
   .info,
@@ -23,13 +24,13 @@ header {
 }
 
 .content {
-  position: fixed;
+  position: absolute;
   // height: calc(100% - 112px);
   width: 100%;
-  overflow-y: auto;
+  //  overflow-y: auto;
   background: rgba(111, 111, 111, 0.11);
   top: 64px;
-  bottom: 48px;
+  margin-bottom: 48px;
   padding: 24px 0;
 }
 
@@ -42,6 +43,7 @@ footer {
   width: 100vw;
   padding: 12px 0 0;
   text-align: center;
+  z-index: 2;
 
   a {
     color: inherit;
