@@ -1,0 +1,43 @@
+<div class="image" #image>
+  <app-preview *ngIf="init" [day]="days[0] | date: 'yyyyMMdd'" [full]="init"></app-preview>
+  <div class="caption" *ngIf="!loading && imageMeta">
+    <section>
+      <p>{{imageMeta.day | date: 'yyyy &middot; MM &middot; dd'}}</p>
+      <h6>Day</h6>
+    </section>
+    <section *ngIf="imageMeta.camera">
+      <p>{{imageMeta.camera}}</p>
+      <h6>Camera</h6>
+    </section>
+    <section *ngIf="imageMeta.focalLength">
+      <p>{{imageMeta.focalLength}}mm</p>
+      <h6>Focal Length</h6>
+    </section>
+    <section *ngIf="imageMeta.aperture > 0">
+      <p>&fnof;/{{imageMeta.aperture}}</p>
+      <h6>Aperture</h6>
+    </section>
+    <section *ngIf="imageMeta.shutterSpeed">
+      <p>{{imageMeta.shutterSpeed}}</p>
+      <h6>Shutter Speed</h6>
+    </section>
+    <section *ngIf="imageMeta.iso">
+      <p>{{imageMeta.iso}}</p>
+      <h6>ISO</h6>
+    </section>
+  </div>
+</div>
+
+<div class="index" #index>
+  <div class="header">
+    <h1><img src="assets/images/365.jpg" alt="365"></h1>
+    <p>A picture a day photo project</p>
+  </div>
+  <div class="list">
+    <app-preview *ngFor="let day of days" class="preview" [day]="day | date: 'yyyyMMdd'" (file)="openImage($event)">
+    </app-preview>
+  </div>
+  <div class="footer">
+    <p><a href="https://lakto.design">lakto.design</a> &copy; {{lastDay | date: 'yyyy'}}</p>
+  </div>
+</div>
