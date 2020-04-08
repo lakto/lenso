@@ -10,5 +10,5 @@ export const environment = {
         month: 5,
         day: 31
     },
-    imagePath: "./assets/images/testdata/"
+    imagePath: "https://media.lakto.org/365/"
 };

@@ -86,14 +86,16 @@ export class AppComponent implements OnInit {
 
     exifr.parse(img).then(meta => {
       const shutterSpeed: string = (meta.ExposureTime < 1 ? '1/' + Math.round(1 / meta.ExposureTime) : meta.ExposureTime.toString())
+      const camera: string = (meta.Make && meta.Model ? meta.Make + ' ' + meta.Model : meta['271'] + ' ' + meta['272'])
       this.imageMeta = {
         day: meta.DateTimeOriginal,
-        camera: meta.Make + ' ' + meta.Model,
+        camera: camera,
         focalLength: meta.FocalLength,
-        aperture: meta.FNumber,
+        aperture: Math.round(meta.FNumber * 100) / 100,
         shutterSpeed: shutterSpeed + 's',
         iso: meta.ISO
       }
+      console.log('exif', meta);
       this.loading = false;
     });
 

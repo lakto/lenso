@@ -2,7 +2,7 @@
   <app-preview *ngIf="init" [day]="days[0] | date: 'yyyyMMdd'" [full]="init"></app-preview>
   <div class="caption" *ngIf="!loading && imageMeta">
     <section>
-      <p>{{imageMeta.day | date: 'yyyy &middot; MM &middot; dd'}}</p>
+      <p>{{imageMeta.day | date: 'yyyy&middot;MM&middot;dd'}}</p>
       <h6>Day</h6>
     </section>
     <section *ngIf="imageMeta.camera">
