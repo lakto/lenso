@@ -1,6 +1,6 @@
-<div class="image" #image>
-  <app-preview *ngIf="init" [day]="days[0] | date: 'yyyyMMdd'" [full]="init"></app-preview>
-  <div class="caption" *ngIf="!loading && imageMeta">
+<div class="image" #image [class.zoom]="zoomIn">
+  <app-preview *ngIf="init" [day]="days[0] | date: 'yyyyMMdd'" [full]="init" [zoom]="zoomIn"></app-preview>
+  <div class="caption" *ngIf="imageMeta">
     <section>
       <p>{{imageMeta.day | date: 'yyyy&middot;MM&middot;dd'}}</p>
       <h6>Day</h6>
@@ -27,6 +27,9 @@
     </section>
   </div>
 </div>
+
+<div class="image image-loader" [class.zoom]="zoomIn" [class.fade-in]="!loading" [class.fade-out]="loading"
+  (click)="zoomIn = !zoomIn"></div>
 
 <div class="index" #index>
   <div class="header">

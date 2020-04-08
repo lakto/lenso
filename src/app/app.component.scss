@@ -10,6 +10,18 @@
     width: calc(100% - 22.5em);
     height: 100%;
     position: absolute;
+    z-index: 0;
+    cursor: zoom-in;
+
+    &.image-loader {
+      opacity: 0;
+      z-index: 2;
+    }
+
+    &.zoom {
+      background-size: cover;
+      cursor: zoom-out;
+    }
 
     .caption {
       background-image: linear-gradient(
@@ -76,14 +88,6 @@
       padding: 0 0.75em;
 
       .preview {
-        &::before {
-          content: "";
-          padding-bottom: 100%;
-          display: inline-block;
-          vertical-align: top;
-        }
-        // width: 50%;
-        // min-height: 100px;
         max-height: 9em;
       }
     }
@@ -111,5 +115,29 @@
     .index {
       width: 19em;
     }
+  }
+}
+
+.fade-in {
+  animation: fadeIn ease 2.5s;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.fade-out {
+  animation: fadeOut ease 2.5s;
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }

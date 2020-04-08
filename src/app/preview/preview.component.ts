@@ -4,7 +4,7 @@ import { DefaultImage } from '../../assets/images/default.image';
 
 @Component({
   selector: 'app-preview',
-  template: `<img [src]="image" (load)="loadPreview($event)" (error)="errorPreview($event)" [class.full]="full" />`,
+  template: `<img [src]="image" (load)="loadPreview($event)" (error)="errorPreview($event)" [class.full]="full" [class.zoom]="zoom" />`,
   styleUrls: ['./preview.component.scss'],
   host: {
     '(click)': 'openImage()'
@@ -14,6 +14,7 @@ export class PreviewComponent implements OnInit {
 
   @Input() day: string;
   @Input() full?: boolean;
+  @Input() zoom?: boolean;
 
   @Output() file: EventEmitter<string> = new EventEmitter();
 

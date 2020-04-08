@@ -16,5 +16,9 @@
     &.full {
       object-fit: contain;
     }
+
+    &.zoom {
+      object-fit: cover;
+    }
   }
 }

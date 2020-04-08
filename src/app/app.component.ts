@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import exifr from 'exifr';
 import { environment } from 'src/environments/environment';
+import { state, style, transition, animate, trigger } from '@angular/animations';
 
 export interface ExifMeta {
   day: Date;
@@ -18,8 +19,9 @@ export interface ExifMeta {
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  loading: boolean;
+  loading: boolean = true;
   init: boolean;
+  zoomIn: boolean = true;
 
   firstDay: Date;
 
@@ -57,10 +59,11 @@ export class AppComponent implements OnInit {
     }
 
     this.days = this.getDaysInMonth(this.lastDay);
+    this.loading = false;
   }
 
   getDaysInMonth(date: Date): Date[] {
-    this.loading = true;
+
     const month: Date = new Date(date);
 
     // last day of month
@@ -75,14 +78,13 @@ export class AppComponent implements OnInit {
       days.push(new Date(lastDayofMonth));
       lastDayofMonth.setDate(lastDayofMonth.getDate() - 1);
     }
-    this.loading = false;
     return days;
   }
 
   openImage(img: string) {
     this.init = false;
     this.loading = true;
-    this.imageEle.nativeElement.style['background-image'] = 'url(' + img + ')';
+    this.zoomIn = true;
 
     exifr.parse(img).then(meta => {
       const shutterSpeed: string = (meta.ExposureTime < 1 ? '1/' + Math.round(1 / meta.ExposureTime) : meta.ExposureTime.toString())
@@ -95,7 +97,7 @@ export class AppComponent implements OnInit {
         shutterSpeed: shutterSpeed + 's',
         iso: meta.ISO
       }
-      console.log('exif', meta);
+      this.imageEle.nativeElement.style['background-image'] = 'url(' + img + ')';
       this.loading = false;
     });
 
