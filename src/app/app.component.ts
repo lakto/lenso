@@ -1,7 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import exifr from 'exifr';
 import { environment } from 'src/environments/environment';
-import { state, style, transition, animate, trigger } from '@angular/animations';
 
 export interface ExifMeta {
   day: Date;
@@ -30,6 +29,10 @@ export class AppComponent implements OnInit {
   imageMeta: ExifMeta;
 
   days: Date[] = [];
+  allDays: number;
+  currentIndex: number = 0;
+
+  error: boolean;
 
   @ViewChild('image') imageEle: ElementRef;
   @ViewChild('index') indexEle: ElementRef;
@@ -39,10 +42,9 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
 
     this.init = true;
-
+    this.loading = true
 
     // go back in time from today
-    // TODO: or from end date defined in environment, if no end date is defined, the end date is the current day
 
     this.firstDay = new Date(
       environment.start.year,
@@ -58,10 +60,53 @@ export class AppComponent implements OnInit {
       );
     }
 
-    this.days = this.getDaysInMonth(this.lastDay);
-    this.loading = false;
+    this.allDays = this.daysBetween(this.firstDay, this.lastDay);
+
+    if (this.allDays < 0) {
+      // start date is in the future or not correct
+      this.init = false;
+
+      this.error = true;
+
+    } else {
+      this.loadPreviews();
+      this.loading = false;
+    }
+
   }
 
+  daysBetween(first: Date, second: Date) {
+
+    // Copy date parts of the timestamps, discarding the time parts.
+    let one = new Date(first.getFullYear(), first.getMonth(), first.getDate());
+    let two = new Date(second.getFullYear(), second.getMonth(), second.getDate());
+
+    // Do the math.
+    let millisecondsPerDay = 1000 * 60 * 60 * 24;
+    let millisBetween = two.getTime() - one.getTime();
+    let days = millisBetween / millisecondsPerDay;
+
+    // Round down.
+    return days;
+  }
+
+  loadPreviews() {
+    let counter = 10;
+    let i: number = 0;
+    while (i < counter && this.currentIndex <= this.allDays) {
+      // add last day to days array
+      this.days[this.currentIndex] = new Date(this.lastDay);
+
+      // set previous day as last day
+      this.lastDay.setDate(this.lastDay.getDate() - 1);
+      // this.lastDay = current;
+      this.currentIndex++;
+      i++;
+    }
+  }
+
+
+  // calendar method: show days from current month
   getDaysInMonth(date: Date): Date[] {
 
     const month: Date = new Date(date);
@@ -78,6 +123,11 @@ export class AppComponent implements OnInit {
       days.push(new Date(lastDayofMonth));
       lastDayofMonth.setDate(lastDayofMonth.getDate() - 1);
     }
+
+    if (days.length < 16) {
+      // load next month already
+    }
+
     return days;
   }
 

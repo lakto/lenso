@@ -35,12 +35,27 @@
   <div class="header">
     <h1><img src="assets/images/365.jpg" alt="365"></h1>
     <p>A picture a day photo project</p>
+    <div class="warning" *ngIf="error">
+      <p>There's something wrong with the dates. Project starts on:<br>{{firstDay | date: 'yyyy&middot;MM&middot;dd'}}
+      </p>
+      <p>and ends on:<br>{{lastDay | date: 'yyyy&middot;MM&middot;dd'}}</p>
+    </div>
   </div>
-  <div class="list">
-    <app-preview *ngFor="let day of days" class="preview" [day]="day | date: 'yyyyMMdd'" (file)="openImage($event)">
+
+
+  <div class="list" *ngIf="!error">
+    <app-preview *ngFor="let day of days; let i = index" class="preview" [day]="day | date: 'yyyyMMdd'"
+      (file)="openImage($event)">
     </app-preview>
   </div>
+  <div class="action" *ngIf="currentIndex < allDays && !error">
+    <button class="load-more" type="button" (click)="loadPreviews()">Load more</button>
+  </div>
+
+
+
   <div class="footer">
-    <p><a href="https://lakto.design">lakto.design</a> &copy; {{lastDay | date: 'yyyy'}}</p>
+    <p><a href="/">365 photo project</a> by <a href="https://lakto.design">lakto.design</a> &copy;
+      {{lastDay | date: 'yyyy'}}</p>
   </div>
 </div>
