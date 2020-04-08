@@ -3,6 +3,7 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Overlay, OverlayConfig, OverlayRef } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
 
+declare var EXIF: any;
 
 export interface MyExif {
     model: string;
@@ -33,11 +34,15 @@ export class CalendarComponent implements OnInit, OnChanges {
     // overlay reference
     overlayRef: OverlayRef;
 
-    exif: MyExif;
+    exif: MyExif = {
+        model: '',
+        lens: '',
+        capture: ''
+    }
 
     isMobile: boolean = false;
 
-    constructor (
+    constructor(
         private _breakpointObserver: BreakpointObserver,
         private _viewContainerRef: ViewContainerRef,
         private _overlay: Overlay) {
@@ -79,12 +84,9 @@ export class CalendarComponent implements OnInit, OnChanges {
 
     }
 
-    openImage(image: Date, ele: MouseEvent) {
-
-        // console.log(ele.path[0]);
+    openImage(image: Date, ev: MouseEvent) {
         this.currentDay = image;
-        // console.log(this.currentImage);
-        this.openPanelWithBackdrop();
+        this.openPanelWithBackdrop(ev);
     }
 
     closeImage() {
@@ -99,7 +101,8 @@ export class CalendarComponent implements OnInit, OnChanges {
 
     }
 
-    openPanelWithBackdrop() {
+    openPanelWithBackdrop(ele: any) {
+        this.loading = true;
         const positionStrategy = this._overlay.position().global().centerHorizontally().centerVertically();
         const scrollStrategy = this._overlay.scrollStrategies.reposition();
         const config = new OverlayConfig({
@@ -114,7 +117,33 @@ export class CalendarComponent implements OnInit, OnChanges {
         // overlayRef.attach(this.searchMenu);
         this.overlayRef.attach(new TemplatePortal(this.photo, this._viewContainerRef));
         this.overlayRef.backdropClick().subscribe(() => this.overlayRef.detach());
-    }
+
+        // read exif data
+        console.log('img source', ele.target.src);
+        let allMetaData: any;
+        EXIF.getData(ele.target, function () {
+            // `this` is provided image, check with `console.log(this)`
+            allMetaData = EXIF.getAllTags(ele.target);
+
+        });
+        setTimeout(function () {
+            const aperture: string = (allMetaData.FNumber.numerator > 0 ? ' @ f' + allMetaData.FNumber.numerator : '');
+            this.exif = {
+                model: allMetaData.Make + ' ' + allMetaData.Model,
+                lens: allMetaData.FocalLength.numerator + 'mm' + aperture,
+                capture: allMetaData.ExposureTime.numerator + '/' + allMetaData.ExposureTime.denominator + '" @ ISO ' + allMetaData.ISOSpeedRatings
+            };
+
+            console.log('allMetaData', allMetaData);
+            console.log('exif', this.exif);
+
+
+        }, 500);
+
+
+    };
+
+
 
     /* getOverlayPosition(): PositionStrategy {
         const positions = [

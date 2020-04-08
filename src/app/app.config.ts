@@ -4,6 +4,7 @@ export class AppConfig {
     public static MONTH: number = 5;
     public static DAY: number = 1;
     // url to images
-    public static PATH: string = "http://media.lakto.org/365/";
+    // public static PATH: string = "http://media.lakto.org/365/";
+    public static PATH: string = "./assets/images/";
 }
 
