@@ -4,11 +4,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PreviewComponent } from './preview/preview.component';
+import { ListComponent } from './list/list.component';
+import { CaptionComponent } from './caption/caption.component';
+import { PictureComponent } from './picture/picture.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PreviewComponent
+    PreviewComponent,
+    ListComponent,
+    CaptionComponent,
+    PictureComponent
   ],
   imports: [
     BrowserModule,

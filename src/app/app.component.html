@@ -1,40 +1,42 @@
-<div class="image" #image [class.zoom]="zoomIn">
-  <app-preview *ngIf="init" [day]="days[0] | date: 'yyyyMMdd'" [full]="init" [zoom]="zoomIn"></app-preview>
-  <div class="caption" *ngIf="imageMeta">
-    <section>
-      <p>{{imageMeta.day | date: 'yyyy&middot;MM&middot;dd'}}</p>
-      <h6>Day</h6>
-    </section>
-    <section *ngIf="imageMeta.camera">
-      <p>{{imageMeta.camera}}</p>
-      <h6>Camera</h6>
-    </section>
-    <section *ngIf="imageMeta.focalLength">
-      <p>{{imageMeta.focalLength}}mm</p>
-      <h6>Focal Length</h6>
-    </section>
-    <section *ngIf="imageMeta.aperture > 0">
-      <p>&fnof;/{{imageMeta.aperture}}</p>
-      <h6>Aperture</h6>
-    </section>
-    <section *ngIf="imageMeta.shutterSpeed">
-      <p>{{imageMeta.shutterSpeed}}</p>
-      <h6>Shutter Speed</h6>
-    </section>
-    <section *ngIf="imageMeta.iso">
-      <p>{{imageMeta.iso}}</p>
-      <h6>ISO</h6>
-    </section>
-  </div>
+<!-- Viewer with selected picture incl. caption and loader; only visible on desktop an bigger tablets -->
+<div class="viewer">
+  <app-picture *ngIf="file" [source]="file"></app-picture>
 </div>
-
-<div class="image image-loader" [class.zoom]="zoomIn" [class.fade-in]="!loading" [class.fade-out]="loading"
-  (click)="zoomIn = !zoomIn"></div>
-
-<div class="index" #index>
+<!-- Sidenav with header, list of pictures and footer; will have width of 100% on smaller mobile devices -->
+<div class="sidenav">
   <div class="header">
     <h1><img src="assets/images/365.jpg" alt="365"></h1>
     <p>A picture a day photo project</p>
+  </div>
+
+  <div class="content">
+    <app-list (load)="file = $event" (lastDay)="lastDay = $event"></app-list>
+  </div>
+
+  <div class="footer">
+    <p><a href="/">365 photo project</a> by <a href="https://lakto.design">lakto.design</a> &copy;
+      {{lastDay | date: 'yyyy'}}
+    </p>
+  </div>
+
+</div>
+
+<!--
+
+
+<div class="image" #image [class.zoom]="zoomIn">
+  <app-preview *ngIf="init" [day]="days[0] | date: 'yyyyMMdd'" [full]="init" [zoom]="zoomIn"></app-preview>
+  <app-caption *ngIf="imageMeta" [exif]="imageMeta"></app-caption>
+</div>
+
+<div class="image image-loader" *ngIf="loading" [class.zoom]="zoomIn" [class.fade-in]="!loading"
+  [class.fade-out]="loading" (click)="zoomIn = !zoomIn"></div>
+
+
+
+<div class="index" #index>
+  <div class="header">
+
     <div class="warning" *ngIf="error">
       <p>There's something wrong with the dates. Project starts on:<br>{{firstDay | date: 'yyyy&middot;MM&middot;dd'}}
       </p>
@@ -55,7 +57,6 @@
 
 
   <div class="footer">
-    <p><a href="/">365 photo project</a> by <a href="https://lakto.design">lakto.design</a> &copy;
-      {{lastDay | date: 'yyyy'}}</p>
+
   </div>
-</div>
+</div> -->

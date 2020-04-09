@@ -1,0 +1,9 @@
+<div class="list">
+  <app-preview *ngFor="let item of list; let i = index" class="item" [day]="item | date: 'yyyyMMdd'"
+    [alt]="item | date: 'yyyy&middot;MM&middot;dd'" (file)="open($event)">
+  </app-preview>
+</div>
+
+<div class="action">
+  <button type="button" class="load-more" *ngIf="currentIndex < all && !error" (click)="loadList()">Load more</button>
+</div>

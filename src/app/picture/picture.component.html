@@ -1,0 +1,2 @@
+<div class="picture" [class.zoom]="zoom" [class.fade-out]="loading" [class.fade-in]="!loading"></div>
+<app-caption *ngIf="picture && !loading" [exif]="picture.exif"></app-caption>

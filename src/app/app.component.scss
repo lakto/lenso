@@ -2,6 +2,58 @@
   height: 100vh;
   width: 100vw;
 
+  .viewer,
+  .sidenav {
+    position: fixed;
+    top: 0;
+    height: 100%;
+  }
+
+  .viewer {
+    width: calc(100% - 480px);
+    left: 0;
+    background: black;
+  }
+
+  .sidenav {
+    width: 480px;
+    right: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: center;
+    background: white;
+
+    .header,
+    .content,
+    .footer {
+      padding: 16px;
+    }
+
+    .header {
+      // TODO: on desktop only
+      text-align: right;
+      img {
+        max-height: 64px;
+      }
+      p {
+        margin: 0 0 1.25em 0;
+      }
+    }
+
+    .content {
+      min-height: 80%;
+    }
+
+    .footer {
+      position: relative;
+      bottom: 0;
+      font-weight: 300;
+      font-size: small;
+    }
+  }
+}
+
+:host {
   .image {
     background-position: center;
     background-size: contain;
@@ -21,30 +73,6 @@
       background-size: cover;
       cursor: zoom-out;
     }
-
-    .caption {
-      background: linear-gradient(
-        0deg,
-        rgba(0, 0, 0, 0.6) 0,
-        rgba(0, 0, 0, 0.2) 40%,
-        rgba(0, 0, 0, 0.05) 70%,
-        transparent
-      );
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      color: rgba(255, 255, 255, 0.5);
-      z-index: 1;
-      display: flex;
-      section {
-        // display: inline-flex;
-        padding: 0 16px;
-        p {
-          font-size: smaller;
-          margin-block-end: 0;
-        }
-      }
-    }
   }
 
   .index {
@@ -55,22 +83,8 @@
     height: 100%;
     background: #fff;
     outline: 0;
-    overflow-x: hidden;
-    overflow-y: auto;
-    text-align: right;
 
     .header {
-      h1 {
-        font-size: 2.25em;
-        font-weight: 700;
-        text-transform: uppercase;
-        img {
-          height: 64px;
-        }
-      }
-      p {
-        margin: 0 0 1.25em 0;
-      }
     }
 
     .list {
@@ -95,156 +109,32 @@
       position: relative;
 
       .load-more {
-        display: inline-block;
-        border: none;
-        padding: 1em 1.5em;
-        margin: 0;
-        text-decoration: none;
-        cursor: pointer;
-        text-align: center;
-        appearance: none;
-        border-radius: 4px;
-        font-size: small;
-        background-color: rgba(170, 170, 170, 0.5);
-
-        &:hover,
-        &:focus {
-          background-color: rgba(170, 170, 170, 0.75);
-          outline: 0;
-        }
-
-        &:active {
-          transform: scale(0.96);
-          outline: 0;
-        }
       }
     }
 
     .footer {
-      font-size: small;
-      text-align: center;
-      bottom: 0;
-      position: relative;
     }
   }
 }
 
-.fade-in {
-  animation: fadeIn ease 2.5s;
-}
-@keyframes fadeIn {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
-}
-
-.fade-out {
-  animation: fadeOut ease 2.5s;
-}
-@keyframes fadeOut {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 769px) and (max-width: 960px) {
   :host {
-    .image {
-      width: calc(100% - 22em);
-
-      .caption {
-        flex-direction: row;
-        padding: 2em 2em 0.75em 2em;
-        width: calc(100% - 4em);
-      }
+    .viewer {
+      width: calc(100% - 240px);
     }
-    .index {
-      width: 22em;
-
-      .header,
-      .action,
-      .footer {
-        padding: 3em 2.25em 1.75em 2.25em;
-        width: calc(100% - 4.5em);
-      }
-
-      .list {
-        grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
-        .preview {
-          max-height: 10.5em;
-        }
-      }
+    .sidenav {
+      width: 240px;
     }
   }
 }
 
-@media screen and (max-width: 1279px) and (min-width: 800px) {
+@media screen and (max-width: 768px) {
   :host {
-    .image {
-      width: calc(100% - 19em);
-
-      .caption {
-        flex-direction: column;
-        padding: 1em;
-        width: calc(100% - 2em);
-      }
+    .viewer {
+      display: none;
     }
-    .index {
-      width: 19em;
-
-      .header,
-      .action,
-      .footer {
-        padding: 2em 1.25em 0.75em 1.25em;
-        width: calc(100% - 2.5em);
-      }
-
-      .list {
-        grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
-        .preview {
-          max-height: 9em;
-        }
-      }
-    }
-  }
-}
-
-@media screen and (max-width: 799px) {
-  :host {
-    .image {
-      width: calc(100% - 5em);
-
-      .caption {
-        flex-direction: column;
-        padding: 0.5em 0.5em 1em 0.5em;
-        width: calc(100% - 1em);
-
-        section {
-          height: 56px;
-        }
-      }
-    }
-    .index {
-      width: 5em;
-
-      .header,
-      .action,
-      .footer {
-        padding: 0.5em 0.25em 0.25em 0.25em;
-        width: calc(100% - 0.5em);
-      }
-      .list {
-        grid-template-columns: repeat(auto-fill, minmax(90%, 1fr));
-        .preview {
-          max-height: 4em;
-        }
-      }
+    .sidenav {
+      width: 100%;
     }
   }
 }

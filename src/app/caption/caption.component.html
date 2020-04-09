@@ -1,0 +1,24 @@
+<section>
+  <p>{{exif.day | date: 'yyyy&middot;MM&middot;dd'}}</p>
+  <h6>Day</h6>
+</section>
+<section *ngIf="exif.camera">
+  <p>{{exif.camera}}</p>
+  <h6>Camera</h6>
+</section>
+<section *ngIf="exif.focalLength > 0">
+  <p>{{exif.focalLength}}mm</p>
+  <h6>Focal Length</h6>
+</section>
+<section *ngIf="exif.aperture > 0">
+  <p>&fnof;/{{exif.aperture}}</p>
+  <h6>Aperture</h6>
+</section>
+<section *ngIf="exif.shutterSpeed">
+  <p>{{exif.shutterSpeed}}</p>
+  <h6>Shutter Speed</h6>
+</section>
+<section *ngIf="exif.iso">
+  <p>{{exif.iso}}</p>
+  <h6>ISO</h6>
+</section>
