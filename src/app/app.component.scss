@@ -1,27 +1,29 @@
 :host {
-  height: 100vh;
   width: 100vw;
+  height: 100vh;
 
   .viewer,
   .sidenav {
-    position: fixed;
     top: 0;
-    height: 100%;
   }
 
   .viewer {
+    position: fixed;
     width: calc(100% - 480px);
+    height: 100vh;
     left: 0;
     background: black;
   }
 
   .sidenav {
+    position: absolute;
     width: 480px;
+    min-height: 100vh;
     right: 0;
     overflow-x: hidden;
-    overflow-y: auto;
     text-align: center;
     background: white;
+    overflow: hidden;
 
     .header,
     .content,
@@ -41,7 +43,7 @@
     }
 
     .content {
-      min-height: 80%;
+      min-height: 75%;
     }
 
     .footer {
@@ -117,7 +119,7 @@
   }
 }
 
-@media screen and (min-width: 769px) and (max-width: 960px) {
+@media screen and (min-width: 769px) and (max-width: 1024px) {
   :host {
     .viewer {
       width: calc(100% - 240px);

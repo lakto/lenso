@@ -69,7 +69,7 @@ export class ListComponent implements OnInit {
     if (this.error) {
       return;
     }
-    let counter = 10;
+    let counter = 8;
     let i: number = 0;
     while (i < counter && this.currentIndex <= this.all) {
       // add last day to days array

@@ -12,7 +12,8 @@ body {
   line-height: 1.65;
   font-size: 1em;
   color: #aaa;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 h1,
