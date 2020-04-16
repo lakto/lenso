@@ -5,6 +5,7 @@ export interface Exif {
   day: Date;
   camera: string;
   focalLength: number;
+  focalLengthIn35mmFormat: number;
   aperture: number;
   shutterSpeed: string;
   iso: number
@@ -46,6 +47,7 @@ export class PictureComponent implements OnInit, OnChanges {
       exifr.parse(this.source).then(meta => {
         const shutterSpeed: string = (meta.ExposureTime < 1 ? '1/' + Math.round(1 / meta.ExposureTime) : meta.ExposureTime.toString());
         const camera: string = (meta.Make && meta.Model ? meta.Make + ' ' + meta.Model : meta['271'] + ' ' + meta['272']);
+        console.log(meta);
 
         this.picture = {
           file: this.source,
@@ -53,6 +55,7 @@ export class PictureComponent implements OnInit, OnChanges {
             day: meta.DateTimeOriginal,
             camera: camera,
             focalLength: Math.round(meta.FocalLength * 100) / 100,
+            focalLengthIn35mmFormat: Math.round(meta.FocalLengthIn35mmFormat * 100) / 100,
             aperture: Math.round(meta.FNumber * 100) / 100,
             shutterSpeed: shutterSpeed + 's',
             iso: meta.ISO

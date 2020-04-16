@@ -7,8 +7,16 @@
   <h6>Camera</h6>
 </section>
 <section *ngIf="exif.focalLength > 0">
-  <p>{{exif.focalLength}}mm</p>
-  <h6>Focal Length</h6>
+  <p>{{exif.focalLength}}mm
+    <span *ngIf="exif.focalLengthIn35mmFormat">
+      / {{exif.focalLengthIn35mmFormat}}mm
+    </span>
+  </p>
+  <h6>Focal Length
+    <span *ngIf="exif.focalLengthIn35mmFormat">
+      / 35mm equivalent
+    </span>
+  </h6>
 </section>
 <section *ngIf="exif.aperture > 0">
   <p>&fnof;/{{exif.aperture}}</p>
