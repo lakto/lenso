@@ -23,7 +23,7 @@ jobs:
       - run: npm run build
 
   publish:
-    name: Publish to npm
+    name: Write release notes
     needs: [build]
     runs-on: ubuntu-latest
     if: github.event_name == 'release' && startsWith(github.ref, 'refs/tags')
