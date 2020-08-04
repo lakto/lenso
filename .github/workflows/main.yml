@@ -33,8 +33,6 @@ jobs:
     # run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
     # --> solution from https://github.community/t5/GitHub-Actions/How-to-get-just-the-tag-name/td-p/31595
     steps:
-      - run: npm install
-      - run: npm run build-prod
       - if: "github.event.release.prerelease"
         uses: lakto/gren-action@v2.0.0
         with:
