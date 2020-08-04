@@ -21,7 +21,7 @@ jobs:
     # --> solution from https://github.community/t5/GitHub-Actions/How-to-get-just-the-tag-name/td-p/31595
     steps:
       - if: "github.event.release.prerelease"
-        uses: lakto/gren-action@v2.0.0
+        uses: lakto/gren-action@v1.1.0
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       - if: "!github.event.release.prerelease"
