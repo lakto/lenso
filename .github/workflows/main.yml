@@ -22,8 +22,6 @@ jobs:
     steps:
       - if: "github.event.release.prerelease"
         uses: lakto/gren-action@v2.0.0
-        with:
-          options: ' --override --prerelease'
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       - if: "!github.event.release.prerelease"
